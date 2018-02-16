@@ -12,6 +12,8 @@ Functionalities provided by this tool:
 -----------------------------------------------------
 **Files to Run**
 ================
+A resource is also shared named 'test_files' that contains files of different types and can be used to test on the go...
+------------
 1)Open Terminal and run file with name 'core_dump.py'
 ------------
 **Input:**
