@@ -4,13 +4,17 @@ Functionalities provided by this tool:
 -----------------------------------------------------
 **Display top 10 Biggest files on your system !**
 -----------------------------------------------------
-**Clean up your Desktop by moving files to their respective extensions' folder in Documents folder**
+**Clean up your Desktop by moving files to their respective extensions' folder in Documents folder !**
 -----------------------------------------------------
-**Handle moving of 2 files with same name to the same folder**
+**Handle moving of 2 files with same name to the same folder !**
 -----------------------------------------------------
 **Option to delete the files from the top 10 largest files list just created !**
 -----------------------------------------------------
-**Has an interactive menu-driven interface**
+**Also segregate hidden files in an interestingly hidden manner !**
+-----------------------------------------------------
+**During collision/same names of files moving, replace,skip and skip all options are embedded to aid user to take appropriate decision !**
+-----------------------------------------------------
+**Has an interactive menu-driven interface !**
 -----------------------------------------------------
 **Files to Run**
 ================
