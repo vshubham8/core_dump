@@ -121,13 +121,6 @@ def move_files(path_to_Desktop,path_to_move,different_extensions,files_with_exte
 							flag = 1
 	# siz = os.stat('xyz.txt').st_size - size in Bytes
 
-	#########################
-
-	#### handle replacing of files ####
-
-	#########################
-
-
 	#################################################################
 
 def main():
@@ -143,8 +136,6 @@ Enter the path to your Desktop: (in above format)'''
 	path_to_move = raw_input()
 	print '------------------------------------------------'
 	########## getting filenames and extension names #########
-	print 'Moving From: ',path_to_Desktop
-	print 'Moving To: ',path_to_move
 	all_files=glob.glob(path_to_Desktop+"*")
 	# print 'loading all visible files'
 	all_hidden_files=glob.glob(path_to_Desktop+".*")
@@ -182,22 +173,30 @@ Enter the path to your Desktop: (in above format)'''
 	# print all_hidden_files_names
 
 	''' DONE HIDDEN '''
-	print 'WAIT !'
-	if hidden_flag>0:
-		move_files(path_to_Desktop,path_to_move,different_hidden_extensions,hidden_files_with_extensions,1)
-		move_files(path_to_Desktop,path_to_move,different_extensions,files_with_extensions,0)
-		#if we want to move visible files to hidden and ...
-		#...hidden files in visible directories then swap 0 and 1 above
+
+	if len(all_files_names) == 0 and hidden_flag == 0:
+		print 'Your Desktop is already cleaned !'
+		print '------------------------------------------------'
 	else:
-		move_files(path_to_Desktop,path_to_move,different_extensions,files_with_extensions,0)
-	#########################################################
-	print 'MOVED !'
-	print '------------------------------------------------'
+		print 'Moving files From: ',path_to_Desktop
+		print 'Moving files To: ',path_to_move
+
+		print 'WAIT !'
+		if hidden_flag>0:
+			move_files(path_to_Desktop,path_to_move,different_hidden_extensions,hidden_files_with_extensions,1)
+			move_files(path_to_Desktop,path_to_move,different_extensions,files_with_extensions,0)
+			#if we want to move visible files to hidden and ...
+			#...hidden files in visible directories then swap 0 and 1 above
+		else:
+			move_files(path_to_Desktop,path_to_move,different_extensions,files_with_extensions,0)
+		#########################################################
+		print 'MOVED !'
+		print '------------------------------------------------'
+	top10()
 
 if __name__=='__main__':
 	try:
 		main()
-		top10('/')
 	except:
 		print 'Error Occured Unxpectedly !'
 
