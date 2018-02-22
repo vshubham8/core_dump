@@ -124,16 +124,52 @@ def move_files(path_to_Desktop,path_to_move,different_extensions,files_with_exte
 	#################################################################
 
 def main():
-	print '''------------------------------------------------
-/ = root directory
-./ = current directory
-FORMAT: (/path/subpath1/subpath2/.../Documents/)
-------------------------------------------------
-Enter the path to your Desktop: (in above format)'''
-	path_to_Desktop = raw_input()
-	print '------------------------------------------------'
-	print 'Enter the path to Documents folder: (in above format)'
-	path_to_move = raw_input()
+	while(1):
+		print 'Do you want to specify path explicitly for \'Desktop\'?: (y/n)'
+		ch = raw_input()
+		if ch.lower() == 'y':	
+			print '''------------------------------------------------
+		/ = root directory
+		./ = current directory
+		FORMAT: (/path/subpath1/subpath2/.../Desktop/)
+		------------------------------------------------
+		Enter the path to your Desktop: (in above format)'''
+			path_to_Desktop = raw_input()
+			break
+		elif ch.lower() == 'n':
+			try:
+				path_to_Desktop = os.path.expanduser("~/Desktop/")
+				print 'Path fetched from the system:',path_to_Desktop
+				break
+			except:
+				print 'Error in fetching Desktop path ! please run again the pgm and specify path...'
+				break
+		else:
+			continue
+
+	while(1):
+		print 'Do you want to specify path explicitly for \'Documents?: \'(y/n)'
+		ch = raw_input()
+		if ch.lower() == 'y':	
+			print '''------------------------------------------------
+		/ = root directory
+		./ = current directory
+		FORMAT: (/path/subpath1/subpath2/.../Documents/)
+		------------------------------------------------
+		Enter the path to your Documents: (in above format)'''
+			path_to_move = raw_input()
+			break
+		elif ch.lower() == 'n':
+			try:
+				path_to_move = os.path.expanduser("~/Documents/")
+				print 'Path fetched from the system:',path_to_move
+				break
+			except:
+				print 'Error in fetching Documents path ! please run again the pgm and specify path...'
+				break
+		else:
+			continue
+
 	print '------------------------------------------------'
 	########## getting filenames and extension names #########
 	all_files=glob.glob(path_to_Desktop+"*")
@@ -197,7 +233,7 @@ Enter the path to your Desktop: (in above format)'''
 if __name__=='__main__':
 	try:
 		main()
-	except:
-		print 'Error Occured Unxpectedly !'
+	except Exception as e:
+		print 'Error Occured Unxpectedly:',e
 
 
