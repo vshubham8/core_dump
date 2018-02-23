@@ -265,8 +265,9 @@ def main():
 	top10()
 
 if __name__=='__main__':
-#	try:
-	main()
-#	except Exception as e:
-#	print( 'Error Occured Unxpectedly:',e)
+	try:
+		main()
+	except Exception as e:
+		print( 'Error Occured Unxpectedly:',e)
+
 
